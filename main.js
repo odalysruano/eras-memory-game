@@ -33,6 +33,25 @@ resetBtn.addEventListener("click", initialize);
 
 /*----- functions -----*/
 // will implement this in a later commit
-function startGame() {};
-function handleMove() {};
-function initialize() {};
+function startGame() {}
+
+function handleMove() {}
+
+function initialize() {
+    gameBoard = [
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null],
+    ];
+    cellsClicked = 0;
+    firstChoice = null;
+    secondChoice = null;
+    gameWon = false;
+    render();
+}
+
+initialize();
+
+function render() {}
