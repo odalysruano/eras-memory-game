@@ -27,5 +27,12 @@ const resetBtn = document.querySelector('#reset');
 const message = document.querySelector('#display-message');
 
 /*----- event listeners -----*/
+startBtn.addEventListener("click", startGame);
+boardWrapper.addEventListener("click", handleMove);
+resetBtn.addEventListener("click", initialize);
 
 /*----- functions -----*/
+// will implement this in a later commit
+function startGame() {};
+function handleMove() {};
+function initialize() {};
