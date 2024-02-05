@@ -21,6 +21,10 @@ let cellsClicked;
 let gameWon;
 
 /*----- cached html element references -----*/
+const boardWrapper = document.querySelector('#board-wrapper');
+const startBtn = document.querySelector('#start');
+const resetBtn = document.querySelector('#reset');
+const message = document.querySelector('#display-message');
 
 /*----- event listeners -----*/
 
