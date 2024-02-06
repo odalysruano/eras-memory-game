@@ -12,6 +12,13 @@ const imageLinks = {
     10: 'https://upload.wikimedia.org/wikipedia/en/9/9f/Midnights_-_Taylor_Swift.png',
 }
 
+const boardImgMap = [
+    [2, 4, 6, 8, 10],
+    [6, 1, 2, 9, 7],
+    [4, 5, 3, 10, 1],
+    [7, 3, 5, 8, 9],
+]
+
 /*----- app's state (variables) -----*/
 let gameBoard;
 let timer;
@@ -35,7 +42,31 @@ resetBtn.addEventListener("click", initialize);
 // will implement this in a later commit
 function startGame() {}
 
-function handleMove() {}
+function handleMove(e) {
+    if(e.target.className !== 'cell') return;
+    const col = parseInt(e.target.parentElement.dataset.num, 10);
+    const row = parseInt(e.target.dataset.num, 10);
+    let selectedCard = gameBoard[row][col];
+    if (selectedCard !== null) return;
+    if (gameWon) return;
+    cellsClicked += 1;
+    gameBoard[row][col] = boardImgMap[row][col];
+    if (firstChoice !== null) {
+        secondChoice = {
+            row: row,
+            col: col,
+            val: boardImgMap[row][col],
+        };
+    } else {
+        firstChoice = {
+            row: row,
+            col: col,
+            val: boardImgMap[row][col],
+        };
+    }
+    evaluateBoard();
+    render();
+}
 
 function initialize() {
     gameBoard = [
@@ -54,4 +85,11 @@ function initialize() {
 
 initialize();
 
-function render() {}
+// will implement these functions in a later commit
+function render() {
+    console.log("Called the render function!");
+}
+
+function evaluateBoard() {
+    console.log("Called the evaluateBoard function!");
+}
