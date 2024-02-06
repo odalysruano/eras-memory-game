@@ -85,11 +85,25 @@ function initialize() {
 
 initialize();
 
-// will implement these functions in a later commit
 function render() {
-    console.log("Called the render function!");
+    renderBoard();
+    renderMessage();
+    if (gameWon !== false || timer === 0) {
+        resetBtn.disabled = false;
+    } else {
+        resetBtn.disabled = true;
+    }
 }
 
+// will implement these functions in a later commit
 function evaluateBoard() {
     console.log("Called the evaluateBoard function!");
+}
+
+function renderBoard() {
+    console.log("Called the renderBoard function!");
+}
+
+function renderMessage() {
+    console.log("Called the renderMessage function!");
 }
