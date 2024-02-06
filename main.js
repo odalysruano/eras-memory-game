@@ -88,7 +88,12 @@ initialize();
 function render() {
     renderBoard();
     renderMessage();
-    if (gameWon !== false || timer === 0) {
+    if (cellsClicked === 0) {
+        startBtn.disabled = false;
+    } else {
+        startBtn.disabled = true;
+    }
+    if (gameWon !== false || timer === 0 || cellsClicked > 0) {
         resetBtn.disabled = false;
     } else {
         resetBtn.disabled = true;
