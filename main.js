@@ -92,7 +92,7 @@ function render() {
     } else {
         startBtn.disabled = true;
     }
-    if (gameWon !== false || timer === 0 || cellsClicked > 0) {
+    if (gameWon || timer === 0 || cellsClicked > 0) {
         resetBtn.disabled = false;
     } else {
         resetBtn.disabled = true;
@@ -120,5 +120,11 @@ function evaluateBoard() {
 }
 
 function renderMessage() {
-    console.log("Called the renderMessage function!");
+    if (gameWon) {
+        message.innerText = "All matches have been found! You win!";
+    } else if (firstChoice !== null && secondChoice !== null && firstChoice !== secondChoice) {
+        message.innerText = "Try again!";
+    } else if (cellsClicked > 0) {
+        message.innerText = "Pick a square!";
+    }
 }
