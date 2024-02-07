@@ -109,20 +109,35 @@ function renderBoard() {
             const value = gameBoard[rowIdx][colIdx];
             if (value !== null) {
                 cell.innerHTML = `<img src=${imageLinks[value]}>`;
+            } else {
+                cell.innerHTML = "";
             }
         })
     })
 }
 
-// will implement these functions in a later commit
 function evaluateBoard() {
-    console.log("Called the evaluateBoard function!");
+    if (firstChoice !== null && secondChoice !== null) {
+        if (firstChoice.val !== secondChoice.val) {
+            gameBoard[firstChoice.row][firstChoice.col] = null;
+            gameBoard[secondChoice.row][secondChoice.col] = null;
+            firstChoice = null;
+            secondChoice = null;
+            cellsClicked -= 2;
+        } else {
+            firstChoice = null;
+            secondChoice = null;
+        }
+    } 
+    if (cellsClicked === 20) {
+        gameWon = true;
+    }
 }
 
 function renderMessage() {
     if (gameWon) {
         message.innerText = "All matches have been found! You win!";
-    } else if (firstChoice !== null && secondChoice !== null && firstChoice !== secondChoice) {
+    } else if (firstChoice !== null && secondChoice !== null && firstChoice.val !== secondChoice.val) {
         message.innerText = "Try again!";
     } else if (cellsClicked > 0) {
         message.innerText = "Pick a square!";
