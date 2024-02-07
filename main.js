@@ -70,11 +70,10 @@ function handleMove(e) {
 
 function initialize() {
     gameBoard = [
-        [null, null, null, null],
-        [null, null, null, null],
-        [null, null, null, null],
-        [null, null, null, null],
-        [null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
     ];
     cellsClicked = 0;
     firstChoice = null;
@@ -100,13 +99,24 @@ function render() {
     }
 }
 
+function renderBoard() {
+    const cols = [...boardWrapper.children];
+    cols.forEach(function(col) {
+        const colIdx = parseInt(col.dataset.num, 10);
+        const cells = [...col.children];
+        cells.forEach(function(cell) {
+            const rowIdx = parseInt(cell.dataset.num, 10);
+            const value = gameBoard[rowIdx][colIdx];
+            if (value !== null) {
+                cell.innerHTML = `<img src=${imageLinks[value]}>`;
+            }
+        })
+    })
+}
+
 // will implement these functions in a later commit
 function evaluateBoard() {
     console.log("Called the evaluateBoard function!");
-}
-
-function renderBoard() {
-    console.log("Called the renderBoard function!");
 }
 
 function renderMessage() {

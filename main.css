@@ -43,3 +43,8 @@ h1 {
     height: 25%;
     border: solid 1px black;
 }
+
+img {
+    height: 100%;
+    width: 100%;
+}
