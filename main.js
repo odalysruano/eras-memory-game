@@ -22,6 +22,7 @@ const boardImgMap = [
 /*----- app's state (variables) -----*/
 let gameBoard;
 let timeRemaining;
+let gameInPlay;
 let firstChoice;
 let secondChoice;
 let cellsClicked;
@@ -41,13 +42,14 @@ resetBtn.addEventListener("click", initialize);
 
 /*----- functions -----*/
 function startGame() {
+    gameInPlay = true;
+    startBtn.disabled = true;
     // will update to 60 once game is complete
     timeRemaining = 1000;
     startTimer();
 }
 
 function startTimer() {
-    startBtn.disabled = true;
     renderTimeRemaining();
     timeRemaining -= 1;
     if (timeRemaining >= 0) {
@@ -69,6 +71,7 @@ function initialize() {
         [null, null, null, null, null],
         [null, null, null, null, null],
     ];
+    gameInPlay = false;
     cellsClicked = 0;
     firstChoice = null;
     secondChoice = null;
@@ -79,7 +82,8 @@ function initialize() {
 }
 
 function handleMove(e) {
-    if(e.target.className !== 'cell') return;
+    if (!gameInPlay) return;
+    if (e.target.className !== 'cell') return;
     const col = parseInt(e.target.parentElement.dataset.num, 10);
     const row = parseInt(e.target.dataset.num, 10);
     let selectedCard = gameBoard[row][col];
@@ -108,12 +112,12 @@ function handleMove(e) {
 function render() {
     renderBoard();
     renderMessage();
-    if (cellsClicked === 0) {
-        startBtn.disabled = false;
-    } else {
+    if (gameInPlay) {
         startBtn.disabled = true;
+    } else {
+        startBtn.disabled = false;
     }
-    if (gameWon || timeRemaining === 0 || cellsClicked > 0) {
+    if (gameWon || timeRemaining === 0 || gameInPlay) {
         resetBtn.disabled = false;
     } else {
         resetBtn.disabled = true;
