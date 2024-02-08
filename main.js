@@ -62,7 +62,7 @@ function startTimer() {
 
 function renderTimeRemaining() {
     countDown.innerText = timeRemaining;
-    if (timeRemaining === 0) {
+    if (timeRemaining === -1) {
         render();
     }
 }
@@ -120,7 +120,7 @@ function render() {
     } else {
         startBtn.disabled = false;
     }
-    if (gameWon || timeRemaining === 0 || gameInPlay) {
+    if (gameWon || timeRemaining === -1 || gameInPlay) {
         resetBtn.disabled = false;
     } else {
         resetBtn.disabled = true;
@@ -169,7 +169,7 @@ function renderMessage() {
         message.innerText = "Try again!";
     } else if (cellsClicked > 0) {
         message.innerText = "Pick a square!";
-    } else if (timeRemaining === 0) {
+    } else if (timeRemaining === -1) {
         message.innerText = "You ran out of time! You lose!";
     } else {
         message.innerText = "";
