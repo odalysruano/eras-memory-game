@@ -52,8 +52,11 @@ function startGame() {
 function startTimer() {
     renderTimeRemaining();
     timeRemaining -= 1;
-    if (timeRemaining >= 0) {
+    if (timeRemaining >= 0 && !gameWon) {
         setTimeout(startTimer, 1000);
+    }
+    if (timeRemaining < 0) {
+        gameInPlay = false;
     }
 }
 
