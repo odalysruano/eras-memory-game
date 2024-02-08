@@ -42,7 +42,7 @@ resetBtn.addEventListener("click", initialize);
 /*----- functions -----*/
 function startGame() {
     // will update to 60 once game is complete
-    timeRemaining = 5;
+    timeRemaining = 1000;
     startTimer();
 }
 
@@ -100,8 +100,9 @@ function handleMove(e) {
             val: boardImgMap[row][col],
         };
     }
-    evaluateBoard();
     render();
+    evaluateBoard();
+    setTimeout(render, 1750);
 }
 
 function render() {
