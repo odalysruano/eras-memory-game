@@ -21,7 +21,7 @@ const boardImgMap = [
 
 /*----- app's state (variables) -----*/
 let gameBoard;
-let timer;
+let timeRemaining;
 let firstChoice;
 let secondChoice;
 let cellsClicked;
@@ -31,6 +31,7 @@ let gameWon;
 const boardWrapper = document.querySelector('#board-wrapper');
 const startBtn = document.querySelector('#start');
 const resetBtn = document.querySelector('#reset');
+const countDown = document.querySelector('#timer');
 const message = document.querySelector('#display-message');
 
 /*----- event listeners -----*/
@@ -39,8 +40,43 @@ boardWrapper.addEventListener("click", handleMove);
 resetBtn.addEventListener("click", initialize);
 
 /*----- functions -----*/
-// will implement this in a later commit
-function startGame() {}
+function startGame() {
+    // will update to 60 once game is complete
+    timeRemaining = 5;
+    startTimer();
+}
+
+function startTimer() {
+    startBtn.disabled = true;
+    renderTimeRemaining();
+    timeRemaining -= 1;
+    if (timeRemaining >= 0) {
+        setTimeout(startTimer, 1000);
+    }
+}
+
+function renderTimeRemaining() {
+    countDown.innerText = timeRemaining;
+    if (timeRemaining === 0) {
+        render();
+    }
+}
+
+function initialize() {
+    gameBoard = [
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+    ];
+    cellsClicked = 0;
+    firstChoice = null;
+    secondChoice = null;
+    gameWon = false;
+    timeRemaining = null;
+    renderTimeRemaining();
+    render();
+}
 
 function handleMove(e) {
     if(e.target.className !== 'cell') return;
@@ -68,22 +104,6 @@ function handleMove(e) {
     render();
 }
 
-function initialize() {
-    gameBoard = [
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-    ];
-    cellsClicked = 0;
-    firstChoice = null;
-    secondChoice = null;
-    gameWon = false;
-    render();
-}
-
-initialize();
-
 function render() {
     renderBoard();
     renderMessage();
@@ -92,7 +112,7 @@ function render() {
     } else {
         startBtn.disabled = true;
     }
-    if (gameWon || timer === 0 || cellsClicked > 0) {
+    if (gameWon || timeRemaining === 0 || cellsClicked > 0) {
         resetBtn.disabled = false;
     } else {
         resetBtn.disabled = true;
@@ -141,5 +161,11 @@ function renderMessage() {
         message.innerText = "Try again!";
     } else if (cellsClicked > 0) {
         message.innerText = "Pick a square!";
+    } else if (timeRemaining === 0) {
+        message.innerText = "You ran out of time! You lose!";
+    } else {
+        message.innerText = "";
     }
 }
+
+initialize();

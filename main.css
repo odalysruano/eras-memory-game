@@ -15,6 +15,11 @@ body {
     width: 10%;
 }
 
+#timer {
+    margin: 10px;
+    width: 10%;    
+}
+
 #reset {
     margin: 10px;
     width: 10%; 
