@@ -45,7 +45,7 @@ function startGame() {
     gameInPlay = true;
     startBtn.disabled = true;
     // will update to 60 once game is complete
-    timeRemaining = 1000;
+    timeRemaining = 30;
     startTimer();
 }
 
@@ -115,7 +115,7 @@ function handleMove(e) {
 function render() {
     renderBoard();
     renderMessage();
-    if (gameInPlay) {
+    if (gameInPlay || timeRemaining === -1) {
         startBtn.disabled = true;
     } else {
         startBtn.disabled = false;
