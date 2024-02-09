@@ -4,15 +4,25 @@
     padding:0;
 }
 
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(245 179 207);
+    font-family: "Abril Fatface", serif;
 }
 
-#start {
+#start, #reset {
     margin: 10px;
     width: 10%;
+    font-family: "Abril Fatface", serif;
+    background-color: white;
 }
 
 #timer {
@@ -20,14 +30,10 @@ body {
     width: 10%;    
 }
 
-#reset {
-    margin: 10px;
-    width: 10%; 
-}
-
 h1 {
-    margin: 50px;
+    margin: 70px;
     text-align: center;
+    letter-spacing: 1.5px;
 }
 
 #board-wrapper {
@@ -46,7 +52,43 @@ h1 {
 .cell {
     width: 100%;
     height: 25%;
-    border: solid 1px black;
+    border: solid 1px white;
+}
+
+.color-box-1 {
+    background-color: rgb(200 232 248);
+}
+
+.color-box-2 {
+    background-color: rgb(126 60 70);
+}
+
+.color-box-3 {
+    background-color: rgb(193 212 187);
+}
+
+.color-box-4 {
+    background-color: rgb(241 207 153);
+}
+
+.color-box-5 {
+background-color: rgb(120 115 117) ;
+}
+
+.color-box-6 {
+    background-color: rgb(210 208 203);
+}
+
+.color-box-7 {
+    background-color: rgb(184 162 190);
+}
+
+.color-box-8 {
+    background-color: rgb(201 181 160);
+}
+
+.color-box-9 {
+    background-color: rgb(248 211 223);
 }
 
 img {

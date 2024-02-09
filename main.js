@@ -58,6 +58,7 @@ function startTimer() {
     }
     if (timeRemaining < 0) {
         gameInPlay = false;
+        renderMessage();
     }
 }
 
@@ -88,7 +89,7 @@ function initialize() {
 
 function handleMove(e) {
     if (!gameInPlay) return;
-    if (e.target.className !== 'cell') return;
+    if (!e.target.classList.contains('cell')) return;
     const col = parseInt(e.target.parentElement.dataset.num, 10);
     const row = parseInt(e.target.dataset.num, 10);
     let selectedCard = gameBoard[row][col];
