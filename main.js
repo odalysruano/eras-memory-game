@@ -165,12 +165,12 @@ function evaluateBoard() {
 function renderMessage() {
     if (gameWon) {
         message.innerText = "All matches have been found! You win!";
+    } else if (timeRemaining === -1) {
+        message.innerText = "You ran out of time! You lose!";
     } else if (firstChoice !== null && secondChoice !== null && firstChoice.val !== secondChoice.val) {
         message.innerText = "Try again!";
     } else if (cellsClicked > 0) {
         message.innerText = "Pick a square!";
-    } else if (timeRemaining === -1) {
-        message.innerText = "You ran out of time! You lose!";
     } else {
         message.innerText = "";
     }
