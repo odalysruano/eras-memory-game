@@ -26,6 +26,7 @@ let gameInPlay;
 let firstChoice;
 let secondChoice;
 let cellsClicked;
+let renderTimeoutID;
 let gameWon;
 
 /*----- cached html element references -----*/
@@ -80,6 +81,7 @@ function initialize() {
     secondChoice = null;
     gameWon = false;
     timeRemaining = null;
+    renderTimeoutID = null;
     renderTimeRemaining();
     render();
 }
@@ -107,9 +109,13 @@ function handleMove(e) {
             val: boardImgMap[row][col],
         };
     }
+    if (renderTimeoutID) {
+        clearTimeout(renderTimeoutID);
+        renderTimeoutID = null;
+    }
     render();
     evaluateBoard();
-    setTimeout(render, 1750);
+    renderTimeoutID = setTimeout(render, 1750);
 }
 
 function render() {
