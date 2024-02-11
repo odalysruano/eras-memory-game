@@ -45,8 +45,7 @@ resetBtn.addEventListener("click", initialize);
 function startGame() {
     gameInPlay = true;
     startBtn.disabled = true;
-    // will update to 60 once game is complete
-    timeRemaining = 30;
+    timeRemaining = 60;
     startTimer();
     renderMessage();
 }
