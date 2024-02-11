@@ -17,3 +17,4 @@ CSS was used to style the game and reflect an "Eras" theme by using colors and f
 ## Getting Started
 
 ## Next Steps
+Planned future enhancements include adding the ability for the player to shuffle the gameboard and to select how much time they would like to solve the game. Other enhacements might include the ability to switch the theme of the game based on a set of different options that store different artwork.
