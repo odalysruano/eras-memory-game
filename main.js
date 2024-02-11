@@ -48,6 +48,7 @@ function startGame() {
     // will update to 60 once game is complete
     timeRemaining = 30;
     startTimer();
+    renderMessage();
 }
 
 function startTimer() {
@@ -176,10 +177,10 @@ function renderMessage() {
         message.innerText = "You ran out of time! You lose!";
     } else if (firstChoice !== null && secondChoice !== null && firstChoice.val !== secondChoice.val) {
         message.innerText = "Try again!";
-    } else if (cellsClicked > 0) {
+    } else if (cellsClicked > 0 || gameInPlay) {
         message.innerText = "Pick a square!";
     } else {
-        message.innerText = "";
+        message.innerText = "Baby, let the games begin.";
     }
 }
 
