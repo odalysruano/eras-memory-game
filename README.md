@@ -26,6 +26,7 @@ HTML was used to organize the content of the webpage. This included the game tit
 CSS was used to style the game and reflect an "Eras" theme by using colors and font similar to that of a Taylor Swift "The Eras Tour" poster.
 
 ## Getting Started
+Link to game: https://odalysruano.github.io/eras-memory-game/
 
 ## Next Steps
 Planned future enhancements include adding the ability for the player to shuffle the gameboard and to select how much time they would like to solve the game. Other enhacements might include the ability to switch the theme of the game based on a set of different options that store different artwork.
