@@ -8,6 +8,11 @@ The design of the game is inspired by Taylor Swift's "The Eras Tour". This is a 
 ## Game Screenshots
 
 ## Technologies Used
+Javascript was used to create the logic of the game and track the game state. Functions were written in order to kickoff the game, keep track of time remaining, and to store the initial state of the game. Additional functions enable player moves, evaluate the gameboard, and render messages.
+
+HTML was used to organize the content of the webpage. This included the game title, buttons to start and reset the game, the countdown display, display messages that indicated the state of the game, and to store the layout of the gameboard grid.
+
+CSS was used to style the game and reflect an "Eras" theme by using colors and font similar to that of a Taylor Swift "The Eras Tour" poster.
 
 ## Getting Started
 
