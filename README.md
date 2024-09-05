@@ -1,4 +1,5 @@
 # Eras Memory Game
+Link to game: https://odalysruano.github.io/eras-memory-game/
 
 ## Game Description
 This is a game of "Memory", a matching game, where the player wins by turning over all matching pairs on the gameboard before the time is up. The player has 60 seconds to uncover all ten of the matching pairs of the gameboard. If two mismatched cards are turned over then the player has to "pick again". However, when two matching cards are turned over, those cards will remain faceup on the gameboard. Once all matches are found before time runs out, the game is won. If the player loses, then they can reset the game to start over.
